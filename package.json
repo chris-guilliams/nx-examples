@@ -24,7 +24,10 @@
     "help": "nx help",
     "nx": "nx",
     "postinstall": "ngcc --properties es2015 browser module main && node decorate-angular-cli.js",
-    "workspace-generator": "nx workspace-generator"
+    "workspace-generator": "nx workspace-generator",
+    "build:ng-webcomponent-example": "npx nx build ng-webcomponent-example --prod",
+    "publish:ng-webcomponent-example": "cd dist/libs/ng-webcomponent-example/ && npm publish --dry-run",
+    "deploy:ng-webcomponent-example": "npm run build:ng-webcomponent-example && npm run publish:ng-webcomponent-example"
   },
   "private": true,
   "dependencies": {
@@ -74,8 +77,14 @@
     "@nrwl/linter": "13.10.0",
     "@nrwl/nx-cloud": "13.2.2",
     "@nrwl/react": "13.10.0",
+    "@nrwl/storybook": "^13.10.0",
     "@nrwl/web": "13.10.0",
     "@nrwl/workspace": "13.10.0",
+    "@storybook/addon-essentials": "~6.4.12",
+    "@storybook/angular": "~6.4.12",
+    "@storybook/builder-webpack5": "~6.4.12",
+    "@storybook/core-server": "~6.4.12",
+    "@storybook/manager-webpack5": "~6.4.12",
     "@testing-library/react": "12.1.4",
     "@types/jest": "27.0.2",
     "@types/node": "14.14.33",
@@ -107,6 +116,7 @@
     "prettier": "2.5.1",
     "ts-jest": "27.0.5",
     "ts-node": "9.1.1",
-    "typescript": "4.6.3"
+    "typescript": "4.6.3",
+    "webpack": "^5.64.0"
   }
 }
