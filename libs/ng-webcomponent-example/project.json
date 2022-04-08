@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/ng-webcomponent-example",
+  "sourceRoot": "libs/ng-webcomponent-example/src",
+  "prefix": "nx-example",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/ng-webcomponent-example"],
+      "options": {
+        "project": "libs/ng-webcomponent-example/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ng-webcomponent-example/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ng-webcomponent-example/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ng-webcomponent-example"],
+      "options": {
+        "jestConfig": "libs/ng-webcomponent-example/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ng-webcomponent-example/src/**/*.ts",
+          "libs/ng-webcomponent-example/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
